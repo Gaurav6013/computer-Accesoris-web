@@ -26,7 +26,7 @@ function App() {
               <PublicRoute exact path="/Laptop" component={Laptop}/>
               <PrivateRoute exact path="/Product" component={Product}/>
               <PrivateRoute exact path="/Contact" component={Contact}/>
-              <PublicRoute exact path="/Login" component={Login}/>
+              <PublicRoute exact path="/Login" restricted={true} component={Login}/>
            </Switch>
         <Footer/>
     </div>
