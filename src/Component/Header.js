@@ -1,7 +1,16 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logOutAction } from "../Redux/action/auth.action";
 
 function Header(props) {
+
+  const dispatch=useDispatch();         
+  const auth =useSelector(state => state.auth)
+  const handleLogOut = () =>{
+    console.log("done");
+     dispatch(logOutAction())
+  }
   return (
     <div className="main-layout inner_posituong computer_page">
       <header>
@@ -59,7 +68,7 @@ function Header(props) {
                         </NavLink>
                       </li>
                       <li className="nav-item">
-                        <NavLink className="nav-link" to="/Product">
+                        <NavLink className="nav-link" to="/">
                           Products
                         </NavLink>
                       </li>
@@ -74,9 +83,16 @@ function Header(props) {
                         </NavLink>
                       </li>
                       <li className="nav-item d_none">
-                        <NavLink className="nav-link" to="/Login">
+                        {
+                          auth.user === null?
+                          <NavLink className="nav-link" to="/Login">
                           Login
-                        </NavLink>
+                          </NavLink>
+                        :
+                          <NavLink className="nav-link" to="/Login" onClick={handleLogOut}>
+                          Log Out
+                         </NavLink>
+                        }
                       </li>
                     </ul>
                   </div>

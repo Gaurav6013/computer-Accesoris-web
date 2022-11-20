@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IsLogin } from '../Utility/IsLogin';
+import IsLogin from '../Utility/IsLogin';
 
 function PublicRoute({component:Component, restricted=false, ...rest}) {
     return (

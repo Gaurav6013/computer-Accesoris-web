@@ -1,13 +1,14 @@
+import { useSelector } from "react-redux";
+import auth from "../Redux/rootreducer";
 
-
-
-export const IsLogin = (props) =>{
-    let localData =localStorage.getItem("user");
-    
-    if(localData==="123123"){
-        return true;
-    }else{
-        return false;
-    }
-
+const IsLogin =() =>{
+    const userDone = useSelector(state=>state.auth)
+    console.log(userDone);
+       if(userDone!== null){
+         return true;
+       }else{
+         return false;
+       }
 }
+
+export default IsLogin;
